@@ -1,0 +1,19 @@
+<project name="DUGforce" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+  <property file="build.properties" />
+  <property environment="env" />
+
+  <target name="buildResources">
+    <subant genericantfile="build.xml" target="buildArchive">
+      <dirset dir="resources" includes="*" />
+    </subant>
+  </target>
+  
+  <target name="buildArchive">
+    <echo level="warning">Overwriting: ${basedir}.resource</echo>
+    <delete file="${basedir}.resource" failonerror="false" />
+    <zip destfile="src/staticResources/${basedir}.resource">
+      <fileset dir="${basedir}" includes="**" />
+    </zip>
+  </target>
+
+</project>
