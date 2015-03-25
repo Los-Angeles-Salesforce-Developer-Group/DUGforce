@@ -1,8 +1,27 @@
-<project name="DUGforce" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="DUGforce" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
+  <!-- sf.username and sf.password should be set in build.properties -->
+  <!-- This file is not included in the repo, create it if it does not exist -->
+
+  <!-- 
+    Sample build.properties:
+    
+    sf.username=joe.schmoe@foobar.baz
+    sf.password=SuzieQ123securitytokenabcdef
+    
+  -->
+
   <property file="build.properties" />
   <property environment="env" />
 
-  <target name="buildResources">
+  <target name="deployWithUnitTests" depends="buildResources" description="Deploys code to org and runs all Apex unit tests">
+    <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true" runAllTests="true" />
+  </target>
+
+  <target name="deploy" depends="buildResources" description="Deploys code to org">
+    <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true" />
+  </target>
+
+  <target name="buildResources" description="Compresses all dirs in resources/ folder saving to src/staticResources">
     <subant genericantfile="build.xml" target="buildArchive">
       <dirset dir="resources" includes="*" />
     </subant>
