@@ -1,4 +1,4 @@
-<project name="DUGforce" default="deploy" basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="DUGforce" default="usage" basedir="." xmlns:sf="antlib:com.salesforce">
   <!-- sf.username and sf.password should be set in build.properties -->
   <!-- This file is not included in the repo, create it if it does not exist -->
 
@@ -12,6 +12,12 @@
 
   <property file="build.properties" />
   <property environment="env" />
+
+  <target name="usage">
+    <exec executable="ant">
+      <arg value="-p" />
+    </exec>
+  </target>
 
   <target name="deployWithUnitTests" depends="buildResources" description="Deploys code to org and runs all Apex unit tests">
     <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true" runAllTests="true" />
@@ -33,6 +39,25 @@
     <zip destfile="src/staticResources/${basedir}.resource">
       <fileset dir="${basedir}" includes="**" />
     </zip>
+  </target>
+
+  <target name="runSystemTests" description="Runs system tests">
+    <executeApex username="${sf.username}" password="${sf.password}">
+      <![CDATA[
+        Integer numTestAccounts = [SELECT COUNT() FROM Account WHERE Name = 'System Test Account'];
+        System.assertEquals(0, numTestAccounts);
+
+        Account systemTestAcct = new Account();
+        systemTestAcct.Name = 'System Test Account';
+        insert systemTestAcct;
+
+        testAccounts = [SELECT Id FROM Account WHERE Name = 'System Test Account'];
+        numTestAccounts = testAccounts.size();
+        System.assertEquals(1, numTestAccounts);
+
+        delete testAccounts;
+      ]]>
+    </executeApex>
   </target>
 
 </project>
