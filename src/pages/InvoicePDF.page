@@ -1,0 +1,27 @@
+<apex:page standardController="Invoice__c" renderAs="pdf">
+  <apex:pageBlock id="pbInvoicePdf" title="{!$ObjectType.Invoice__c.label}">
+    <!-- Invoice Header Info -->
+    <apex:pageBlockSection id="pbsInvoiceHdrInfo">
+      <apex:pageBlockSectionItem id="pbsiDate">
+        <apex:outputField value="{!Invoice__c.Date__c}" styleClass="" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem id="pbsiInvoiceNum">
+        <apex:outputField value="{!Invoice__c.Name}" styleClass="" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem id="pbsiInvoiceFor">
+        <apex:outputField value="{!Invoice__c.Date__c}" styleClass="" />
+      </apex:pageBlockSectionItem>
+      <apex:pageBlockSectionItem id="pbsiBillTo">
+        <apex:outputLabel for="" value="" />
+        <apex:outputPanel >
+          
+        </apex:outputPanel>
+      </apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+    
+    <!-- Payee Info -->
+    <apex:pageBlockSection id="pbsPayeeInfo">
+      
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>
