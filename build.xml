@@ -27,18 +27,35 @@
     <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true" />
   </target>
 
+  <!-- Shows check only; never actually saves to the server -->
+  <target name="deployCodeCheckOnly" depends="buildResources">
+    <sf:deploy username="${sf.username}" password="${sf.password}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" checkOnly="true"/>
+  </target>
+
   <target name="buildResources" description="Compresses all dirs in resources/ folder saving to src/staticResources">
+    <echo>$${user.dir}=${user.dir}</echo>
+    <echo>$${basedir}=${basedir}</echo>
+    <echo>dirset dir=resources/</echo>
     <subant genericantfile="build.xml" target="buildArchive">
-      <dirset dir="resources" includes="*" />
+      <dirset dir="resources/" includes="*" />
     </subant>
   </target>
   
   <target name="buildArchive">
+    <!--
+    <echo>$${user.dir}=${user.dir}</echo>
+    <echo>$${basedir}=${basedir}</echo>
     <echo level="warning">Overwriting: ${basedir}.resource</echo>
+    -->
     <delete file="${basedir}.resource" failonerror="false" />
-    <zip destfile="src/staticResources/${basedir}.resource">
+    <zip destfile="${basedir}.resource">
       <fileset dir="${basedir}" includes="**" />
     </zip>
+    <copy file="${basedir}.resource" todir="${user.dir}/src/staticresources" />
+    <!--
+    <echo>file="${basedir}.resource"</echo>
+    <echo>todir="${user.dir}/src/staticresources"</echo>
+    -->
   </target>
 
   <target name="runSystemTests" description="Runs system tests">
