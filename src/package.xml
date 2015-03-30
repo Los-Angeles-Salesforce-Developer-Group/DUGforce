@@ -18,7 +18,15 @@
     </types>
     <types>
         <members>*</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Profile</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>QuickAction</name>
     </types>
     <types>
         <members>*</members>
