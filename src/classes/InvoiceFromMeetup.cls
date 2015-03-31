@@ -7,5 +7,10 @@ public class InvoiceFromMeetup{
     public InvoiceFromMeetup(ApexPages.StandardController stdCtrlr){
         this.meetup = (Meetup__c)stdCtrlr.getRecord();
         
+        this.meetupExpenses = [
+            SELECT Id, Name, Amount__c, Date__c, Description__c, Invoice_Line_Item__c
+            FROM   Expense__c
+            WHERE  Meetup__c = :this.meetup.Id
+        ];
     }
 }
