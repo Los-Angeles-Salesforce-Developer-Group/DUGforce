@@ -1,0 +1,13 @@
+<apex:page standardController="Meetup__c" extensions="InvoiceFromMeetup">
+  <apex:sectionHeader title="Invoice from this Meetup"/>
+  
+  <apex:pageBlock tabStyle="Expense__c" title="Expenses">
+    <apex:pageBlockTable value="{!meetupExpenses}" var="meetupExpense">
+      <apex:column value="{!meetupExpense.Name}"/>
+      <apex:column value="{!meetupExpense.Amount__c}"/>
+      <apex:column value="{!meetupExpense.Date__c}"/>
+      <apex:column value="{!meetupExpense.Description__c}"/>
+      <apex:column value="{!meetupExpense.Invoice_Line_Item__c}"/>
+    </apex:pageBlockTable>
+  </apex:pageBlock>
+</apex:page>
