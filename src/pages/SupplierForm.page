@@ -1,4 +1,4 @@
-<apex:page standardController="Supplier__c" tabStyle="Supplier__c" showHeader="false" sidebar="false">
+<apex:page standardController="Supplier__c" tabStyle="Supplier__c" showHeader="false" sidebar="false" renderAs="pdf">
   <style>
     .pbSubheader{background-color:blue}
   </style>
