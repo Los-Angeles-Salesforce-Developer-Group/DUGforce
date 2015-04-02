@@ -14,6 +14,8 @@
   <property file="local.build.properties" />
   <property environment="env" />
 
+  <taskdef name="ivy-retrieve" classname="org.apache.ivy.ant.IvyRetrieve"/>
+  
   <target name="usage">
     <exec executable="ant">
       <arg value="-p" />
