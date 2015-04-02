@@ -1,4 +1,4 @@
-<project name="DUGforce" default="usage" basedir="." xmlns:sf="antlib:com.salesforce">
+<project name="DUGforce" default="usage" basedir="." xmlns:sf="antlib:com.salesforce" xmlns:ivy="antlib:org.apache.ivy.ant">
   <!-- sf.username and sf.password should be set in build.properties -->
   <!-- This file is not included in the repo, create it if it does not exist -->
 
