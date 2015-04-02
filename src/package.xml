@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
-        <members>*</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Admin</members>
-        <members>DUG Member %28App Subscription%29</members>
-        <members>DUG Member %28Chatter Free%29</members>
-        <members>DUG Member %28Force%2Ecom Free%29</members>
-        <members>DUG Member %28Platform%29</members>
-        <members>DUG Member %28Standard%29</members>
-        <members>DUG Member %28System Administrator%29</members>
-        <name>Profile</name>
-    </types>
-    <types>
-        <members>Invoice__c.ImportExpenses</members>
-        <members>Invoice__c.SubmitInvoice</members>
-        <members>Meetup__c.Check_In</members>
-        <members>Meetup__c.Invoice_From_Meetup</members>
-        <members>Meetup__c.New_Expense</members>
-        <members>Meetup__c.RSVP</members>
-        <members>Meetup__c.Suggest_Venue</members>
-        <members>Supplier__c.Submit2SFDCaction</members>
-        <name>QuickAction</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
-    </types>
-    <version>29.0</version>
+	<types>
+		<members>*</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>ApexComponent</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>ApexPage</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>ApexTrigger</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomLabels</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Admin</members>
+		<members>DUG Member %28App Subscription%29</members>
+		<members>DUG Member %28Chatter Free%29</members>
+		<members>DUG Member %28Force%2Ecom Free%29</members>
+		<members>DUG Member %28Platform%29</members>
+		<members>DUG Member %28Standard%29</members>
+		<members>DUG Member %28System Administrator%29</members>
+		<name>Profile</name>
+	</types>
+	<types>
+		<members>Invoice__c.ImportExpenses</members>
+		<members>Invoice__c.SubmitInvoice</members>
+		<members>Meetup__c.Check_In</members>
+		<members>Meetup__c.Invoice_From_Meetup</members>
+		<members>Meetup__c.New_Expense</members>
+		<members>Meetup__c.RSVP</members>
+		<members>Meetup__c.Suggest_Venue</members>
+		<members>Supplier__c.Submit2SFDCaction</members>
+		<name>QuickAction</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>StaticResource</name>
+	</types>
+	<version>29.0</version>
 </Package>
