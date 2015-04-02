@@ -59,6 +59,10 @@
     -->
   </target>
 
+  <target name="resolve" description="Resolve dependencies via ivy">
+    <ivy:retrieve />
+  </target>
+  
   <target name="runSystemTests" description="Runs system tests">
     <executeApex username="${sf.username}" password="${sf.password}">
       <![CDATA[
