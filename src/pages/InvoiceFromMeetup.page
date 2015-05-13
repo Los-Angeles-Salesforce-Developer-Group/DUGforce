@@ -1,4 +1,39 @@
 <apex:page standardController="Meetup__c" extensions="InvoiceFromMeetup">
+  <apex:includeScript value="/support/console/33.0/integration.js" />
+  <script>
+    window.onload = function() {
+      // Do something if inside the Salesforce1 Mobile App
+      if( (typeof sforce != 'undefined') && (sforce != null) ) {
+        // sforce exists
+        alert('sforce exists!');
+        
+        // Do something if inside the Salesforce1 Mobile App
+        if( (typeof sforce.one != 'undefined') && (sforce.one != null) ) {
+          // Salesforce1 Mobile App specific
+          alert('I\'m inside of Salesforce1 Mobile App!');
+        }
+        else {
+          alert('I am not inside of Salesforce1 Mobile App...');
+        }
+
+        // Do something if inside the Salesforce Console
+        if( (typeof sforce.console != 'undefined') && (sforce.console != null) && (sforce.console.isInConsole()) ) {
+          // Salesforce Console specific
+          alert('I\'m inside of Salesforce Console!');
+        }
+        else {
+          alert('I am not inside of Salesforce Console...');
+        }
+      }
+      else {
+        alert('sforce does not exist...');
+      }
+
+    };
+  </script>
+  <apex:outputText rendered="{!stdCtrlr!=null}" value="Constructed with Standard Controller" />
+  <apex:outputText rendered="{!stdCtrlr==null}" value="Constructed without Standard Controller" />
+  <!--
   <apex:form>
     <apex:sectionHeader title="Invoice from this Meetup"/>
     <apex:pageBlock tabStyle="Invoice__c">
@@ -21,4 +56,5 @@
     </apex:pageBlock>
 
   </apex:form>
+  -->
 </apex:page>

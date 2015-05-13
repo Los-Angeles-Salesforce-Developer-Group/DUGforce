@@ -3,8 +3,11 @@ public class InvoiceFromMeetup{
     public Expense__c[] meetupExpenses{get; set;}
     public Invoice__c newInvoice{get; set;}
     public InvoiceLineItem__c[] invLineItems{get; set;}
+
+    public ApexPages.StandardController stdCtrlr{get; set;}
     
-    public InvoiceFromMeetup(ApexPages.StandardController stdCtrlr){
+    public InvoiceFromMeetup(ApexPages.StandardController standardCtrlr){
+        this.stdCtrlr = standardCtrlr;
         this.meetup = (Meetup__c)stdCtrlr.getRecord();
         
         // Generate Invoice from Meetup
