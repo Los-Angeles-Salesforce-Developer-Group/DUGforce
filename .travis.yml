@@ -4,5 +4,5 @@ branches:
   only:
     - master
 script: 
-  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ant -lib lib/ant-salesforce.jar -Dsf.username=${sf.user} -Dsf.password=${sf.pass}${sf.token} deployRunNoTests || [ "${TRAVIS_PULL_REQUEST}" != "false" ]'
-  - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] && ant -lib lib/ant-salesforce.jar -Dsf.username=${sf.user} -Dsf.password=${sf.pass}${sf.token} validateAllTests || [ "${TRAVIS_PULL_REQUEST}" = "false" ]'
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ant -lib lib/ant-salesforce.jar -Dsf.username=${SFUSR} -Dsf.password=${SFPASS} deployRunNoTests || [ "${TRAVIS_PULL_REQUEST}" != "false" ]'
+  - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] && ant -lib lib/ant-salesforce.jar -Dsf.username=${SFUSR} -Dsf.password=${SFPASS} validateAllTests || [ "${TRAVIS_PULL_REQUEST}" = "false" ]'
