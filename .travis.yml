@@ -4,4 +4,4 @@ branches:
   only:
     - master
 script: 
-  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ant -lib lib/ant-salesforce.jar -Dsf.username=${SFUSR} -Dsf.password=${SFPASS} deployWithUnitTests || [ "${TRAVIS_PULL_REQUEST}" != "false" ]'
+  - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && ant -lib lib/ant-salesforce.jar -Dsf.username=${SFUSR} -Dsf.password=${SFPASS} deploy || [ "${TRAVIS_PULL_REQUEST}" != "false" ]'
